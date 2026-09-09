@@ -3,116 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="A clean, modern personal website.">
-  <link rel="stylesheet" href="style.css">
+  <title>Himanshu Ramteke — UI/UX & AI Product Designer</title>
+  <meta name="description" content="Himanshu Ramteke is a UI/UX and AI Product Designer who turns product problems into flows, interfaces, brand systems and working frontends.">
+  <meta name="theme-color" content="#F4F1EA">
+  <meta property="og:title" content="Himanshu Ramteke — UI/UX & AI Product Designer">
+  <meta property="og:description" content="Designed for how people actually behave. Built to ship.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/nudge-hero.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23D4F04B'/%3E%3C/svg%3E">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="cursor" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="navbar" aria-label="Main navigation">
-      <a href="#home" class="logo">Your Name</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="Himanshu Ramteke — home"><span class="dot"></span><span data-text="name">Himanshu Ramteke</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#nudge">Case study</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <h1>Hi, I'm Your Name.</h1>
-        <p class="hero-subtitle">A short, confident description of what you do and who you help — one or two sentences that tell visitors exactly what this site is about.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#work" class="btn btn-secondary">See my work</a>
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#work"><span class="mono">01</span>Work</a>
+      <a href="#nudge"><span class="mono">02</span>Case study</a>
+      <a href="#about"><span class="mono">03</span>About</a>
+      <a href="#process"><span class="mono">04</span>Process</a>
+      <a href="#experience"><span class="mono">05</span>Experience</a>
+      <a href="#contact"><span class="mono">06</span>Contact</a>
+    </nav>
+    <div class="meta mono" data-render="menu-meta"></div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero container" id="top" aria-label="Introduction">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <p class="eyebrow mono"><span class="pulse" aria-hidden="true"></span><span data-text="status"></span><span aria-hidden="true">·</span><span data-text="location"></span></p>
+
+      <h1 class="headline display" data-render="hero-headline">
+        <span class="spec" aria-hidden="true"><i></i><span class="tag">Frame 01 · Himanshu Ramteke</span><span class="dim">UI/UX · AI Product Design</span></span>
+      </h1>
+
+      <div class="bottom">
+        <div>
+          <p class="lede rv" data-text="hero-lede"></p>
+          <div class="ctas rv" style="margin-top: var(--s-4)">
+            <a class="btn solid" data-cta="primary" href="#work"><span></span><span class="arr" aria-hidden="true">↓</span></a>
+            <a class="btn" data-cta="secondary" href="nudge.html"><span></span><span class="arr" aria-hidden="true">→</span></a>
+          </div>
         </div>
+        <div class="facts rv" data-render="hero-facts"></div>
+      </div>
+      <span class="scroll-hint" aria-hidden="true">Scroll</span>
+    </section>
+
+    <div class="strip" aria-hidden="true">
+      <div class="track" data-render="strip"></div>
+    </div>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section work" id="work">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">01 — Selected work</span>
+          <h2 class="title display">Work that <em>shipped</em>, and work that taught me something.</h2>
+          <p class="aside">Two live products designed and built end to end, plus the concepts where I practise the fundamentals. Fewer projects, shown properly.</p>
+        </header>
+        <div data-render="projects"></div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- ============ FEATURED CASE STUDY ============ -->
+    <section class="section featured on-ink" id="nudge">
+      <div class="container" data-render="featured"></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
       <div class="container">
-        <h2>About</h2>
-        <p>Replace this paragraph with a short bio: who you are, what you do, and what makes your approach different. Keep it to two or three sentences so it stays easy to scan.</p>
-        <p>You can add a second paragraph here for background, experience, or a personal note — anything that helps a visitor understand your story.</p>
+        <header class="sec-head rv">
+          <span class="idx">02 — About</span>
+          <h2 class="title display" data-text="about-heading"></h2>
+        </header>
+        <div class="body" data-render="about"></div>
       </div>
     </section>
 
-    <section id="services" class="section section-alt">
+    <!-- ============ PROCESS ============ -->
+    <section class="section process" id="process">
       <div class="container">
-        <h2>What I Do</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Service One</h3>
-            <p>A brief description of this service or focus area. Explain the value it brings in a sentence or two.</p>
-          </div>
-          <div class="card">
-            <h3>Service Two</h3>
-            <p>A brief description of this service or focus area. Explain the value it brings in a sentence or two.</p>
-          </div>
-          <div class="card">
-            <h3>Service Three</h3>
-            <p>A brief description of this service or focus area. Explain the value it brings in a sentence or two.</p>
-          </div>
-        </div>
+        <header class="sec-head rv">
+          <span class="idx">03 — How I work</span>
+          <h2 class="title display">Six steps. The order <em>matters.</em></h2>
+          <p class="aside">The same loop whether it's a brand, a mobile concept or a live website — adapted to how much time and evidence I actually have.</p>
+        </header>
+        <ol class="steps" data-render="process"></ol>
       </div>
     </section>
 
-    <section id="work" class="section">
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills">
       <div class="container">
-        <h2>Selected Work</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Project One</h3>
-            <p>A short summary of the project, the problem it solved, and the outcome. Swap in real details and a link when ready.</p>
-            <a href="#" class="link-arrow">View project &rarr;</a>
-          </div>
-          <div class="card">
-            <h3>Project Two</h3>
-            <p>A short summary of the project, the problem it solved, and the outcome. Swap in real details and a link when ready.</p>
-            <a href="#" class="link-arrow">View project &rarr;</a>
-          </div>
-          <div class="card">
-            <h3>Project Three</h3>
-            <p>A short summary of the project, the problem it solved, and the outcome. Swap in real details and a link when ready.</p>
-            <a href="#" class="link-arrow">View project &rarr;</a>
-          </div>
-        </div>
+        <header class="sec-head rv">
+          <span class="idx">04 — Capabilities</span>
+          <h2 class="title display">Think, design, <em>build.</em></h2>
+        </header>
+        <div class="groups" data-render="skills"></div>
       </div>
     </section>
 
-    <section id="contact" class="section section-alt">
+    <!-- ============ DESIGN × AI ============ -->
+    <section class="section ai-sec on-pine" id="ai">
+      <div class="container" data-render="ai"></div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section exp" id="experience">
       <div class="container">
-        <h2>Get In Touch</h2>
-        <p>Have a project in mind or just want to say hello? Reach out — replace this section with your real contact details or a form when you're ready.</p>
-        <div class="hero-actions">
-          <a href="mailto:hello@example.com" class="btn btn-primary">Email Me</a>
-          <a href="#" class="btn btn-secondary">LinkedIn</a>
-        </div>
+        <header class="sec-head rv">
+          <span class="idx">06 — Experience</span>
+          <h2 class="title display">Where the work <em>happened.</em></h2>
+        </header>
+        <div class="list" data-render="experience"></div>
       </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact on-ink" id="contact">
+      <div class="container" data-render="contact"></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,93 @@
+/* =============================================================
+   DESIGN TOKENS
+   One place for colour, type, spacing, motion.
+   ============================================================= */
+:root {
+  /* ---- Colour: neutrals ---- */
+  --paper:      #F4F1EA;   /* warm bone — page background */
+  --paper-2:    #EBE7DD;   /* slightly deeper bone — alt sections, cards */
+  --paper-3:    #E1DCCF;   /* borders on paper */
+  --ink:        #101512;   /* green-black — primary text, dark sections */
+  --ink-2:      #1A211C;   /* raised surfaces on ink */
+  --ink-3:      #2A342E;   /* borders on ink */
+  --muted:      #5F6862;   /* secondary text on paper */
+  --muted-ink:  #A9B1AA;   /* secondary text on ink */
+
+  /* ---- Colour: brand ---- */
+  --pine:       #163B2E;   /* primary brand — deep pine */
+  --pine-2:     #0F2A21;
+  --lime:       #D4F04B;   /* accent — highlight, never body text */
+  --lime-2:     #BFE02E;
+  --clay:       #E2653A;   /* secondary accent — sparingly */
+
+  /* ---- Semantic ---- */
+  --bg:         var(--paper);
+  --fg:         var(--ink);
+  --fg-2:       var(--muted);
+  --line:       rgba(16, 21, 18, 0.14);
+  --line-strong:rgba(16, 21, 18, 0.35);
+  --accent:     var(--pine);
+  --accent-contrast: var(--lime);
+  --focus:      var(--clay);
+
+  /* ---- Type ---- */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans:    "Instrument Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* fluid type scale */
+  --t-hero:   clamp(2.9rem, 7.2vw, 7.6rem);
+  --t-h1:     clamp(2.4rem, 5vw, 4.8rem);
+  --t-h2:     clamp(1.9rem, 3.6vw, 3.4rem);
+  --t-h3:     clamp(1.35rem, 2vw, 1.9rem);
+  --t-lead:   clamp(1.1rem, 1.5vw, 1.35rem);
+  --t-body:   clamp(1rem, 1.1vw, 1.0625rem);
+  --t-small:  0.875rem;
+  --t-mono:   0.75rem;
+
+  /* ---- Layout ---- */
+  --max:      1440px;
+  --gutter:   clamp(1.25rem, 4vw, 4rem);
+  --col-gap:  clamp(1rem, 2.5vw, 2.5rem);
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: clamp(3rem, 6vw, 5rem);
+  --s-7: clamp(4.5rem, 10vw, 9rem);   /* section rhythm */
+  --radius: 4px;
+  --radius-lg: 12px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur: 480ms;
+  --dur-slow: 900ms;
+}
+
+/* Dark surface context — apply .on-ink to any dark section */
+.on-ink {
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --fg-2: var(--muted-ink);
+  --line: rgba(244, 241, 234, 0.14);
+  --line-strong: rgba(244, 241, 234, 0.4);
+  --accent: var(--lime);
+  --accent-contrast: var(--ink);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.on-pine {
+  --bg: var(--pine);
+  --fg: var(--paper);
+  --fg-2: rgba(244, 241, 234, 0.7);
+  --line: rgba(244, 241, 234, 0.16);
+  --line-strong: rgba(244, 241, 234, 0.45);
+  --accent: var(--lime);
+  --accent-contrast: var(--pine);
+  background: var(--bg);
+  color: var(--fg);
+}

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nudge — case study · Himanshu Ramteke</title>
+  <meta name="description" content="Nudge is a learning companion app that helps people come back after they miss a day. Research, strategy, key decisions and final design by Himanshu Ramteke.">
+  <meta name="theme-color" content="#F4F1EA">
+  <meta property="og:title" content="Nudge — a learning companion designed for recovery, not streaks">
+  <meta property="og:image" content="assets/img/nudge-hero.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/case-study.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23D4F04B'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Himanshu Ramteke — home"><span class="dot"></span><span>Himanshu Ramteke</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Process</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="index.html#work"><span class="mono">01</span>Work</a>
+      <a href="index.html#about"><span class="mono">02</span>About</a>
+      <a href="index.html#process"><span class="mono">03</span>Process</a>
+      <a href="index.html#experience"><span class="mono">04</span>Experience</a>
+      <a href="index.html#contact"><span class="mono">05</span>Contact</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="container cs-hero">
+      <div>
+        <a class="link back" href="index.html#nudge" style="margin-bottom:var(--s-4)"><span class="arr" aria-hidden="true">←</span> Back to work</a>
+        <p class="mono muted" style="margin-bottom:var(--s-3)">Case study · Product concept · 2026</p>
+        <h1 class="title display">Nudge — a learning companion built for the <em>day after</em> you miss a day.</h1>
+        <p class="one" style="margin-top:var(--s-3)">Existing platforms host courses. Nudge helps people keep going with them — across YouTube, Coursera, Udemy and anything with a link.</p>
+      </div>
+      <dl class="facts">
+        <div><dt class="k">Role</dt><dd class="v">Research, product strategy, UX, UI, design system</dd></div>
+        <div><dt class="k">Timeline</dt><dd class="v">2026 · self-initiated</dd></div>
+        <div><dt class="k">Tools</dt><dd class="v">Figma</dd></div>
+        <div><dt class="k">Platform</dt><dd class="v">Mobile (iOS/Android concept)</dd></div>
+      </dl>
+    </section>
+    <div class="container">
+      <figure class="img reveal-img cs-cover"><img src="assets/img/nudge-hero.webp" alt="Nudge app hero — a phone on a green podium showing the welcome screen: 'Learn anything. Stay consistent.'" decoding="async"></figure>
+    </div>
+
+    <!-- ============ CONTEXT ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Context</span>
+        <div>
+          <h2 class="h display">Why this, why now</h2>
+          <div class="body">
+            <p>Most of my own learning — and my friends' — happens on YouTube, not in a walled course platform. That's convenient and completely unstructured. People start with real intent, then a busy week happens, and the course just… stops.</p>
+            <p><strong>Nudge doesn't host content.</strong> It sits alongside whatever you're already using and does the one thing platforms don't: helps you build a habit and recover when it breaks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Problem</span>
+        <div>
+          <h2 class="h display">Motivation isn't the problem. Recovery is.</h2>
+          <div class="body">
+            <blockquote>People who start learning online begin with strong motivation but struggle to stay consistent. Platforms provide content but rarely help users build sustainable habits — or return after an interruption.</blockquote>
+            <p><strong>What made it hard:</strong> every existing pattern (streaks, reminders, progress bars) is designed for the person who's already showing up. The moment someone misses two days, those same patterns turn into guilt — and guilt is what makes people avoid the app entirely.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Research</span>
+        <div>
+          <h2 class="h display">What 15 learners told me</h2>
+          <div class="body">
+            <p>I interviewed 15 people across four groups — students, working professionals, career switchers and lifelong learners — with one goal: understand why people abandon online courses despite wanting to continue.</p>
+          </div>
+          <ul class="stats rv" aria-label="Key research numbers">
+            <li><span class="n">53%</span><p class="t">said consistency was their biggest challenge</p></li>
+            <li><span class="n">87%</span><p class="t">used YouTube as their primary learning source</p></li>
+            <li><span class="n">15</span><p class="t">participants across 4 learner types</p></li>
+          </ul>
+          <ol class="findings rv" aria-label="Pain points">
+            <li><span class="n">01</span><span>Lack of consistency — the course drops out of the routine after one busy week.</span></li>
+            <li><span class="n">02</span><span>Too many courses, no structure — six started, none finished.</span></li>
+            <li><span class="n">03</span><span>Busy, irregular schedules — study happens in the evening, if at all.</span></li>
+            <li><span class="n">04</span><span>Guilt after missing days — which makes reopening the app feel worse.</span></li>
+            <li><span class="n">05</span><span>No visible progress — a 15% bar on a 40-hour course isn't motivating.</span></li>
+          </ol>
+          <div class="body" style="margin-top:var(--s-4)">
+            <blockquote>Most participants didn't quit intentionally. They simply stopped showing up after missing a few days.</blockquote>
+          </div>
+        </div>
+      </div>
+      <figure class="img reveal-img full"><img src="assets/img/nudge-journey.webp" alt="Journey map of a typical learning attempt: start course, motivated, learning daily, miss a day — then the drop-off zone: feel behind, avoid app, abandon course" loading="lazy" decoding="async"></figure>
+      <figcaption>The current journey. The drop-off zone starts the day after a missed day — that's where the product had to live.</figcaption>
+    </section>
+
+    <!-- ============ STRATEGY ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Strategy</span>
+        <div>
+          <h2 class="h display">How might we help learners return after missing a day — without guilt or overwhelm?</h2>
+          <div class="body">
+            <p>Instead of trying to be a better course platform, Nudge would be a companion: <strong>bring your own content, and we'll handle the habit.</strong> That reframing set three design principles I checked every screen against.</p>
+          </div>
+          <ul class="principles rv">
+            <li><h4>Simple</h4><p>Clean layouts, one clear next action, no distraction. The app should take less than a minute a day to use.</p></li>
+            <li><h4>Encouraging</h4><p>Positive tone, small wins made visible. Progress in minutes and confidence, not just percent complete.</p></li>
+            <li><h4>Non-judgmental</h4><p>Meet learners where they are. No shame, no comparison, no red broken streak.</p></li>
+          </ul>
+        </div>
+      </div>
+      <figure class="img reveal-img full"><img src="assets/img/nudge-hmw.webp" alt="How might we board: remove guilt and offer empathy, make it easy to restart, rebuild motivation with achievable wins, show visible progress quickly, small steps big progress" loading="lazy" decoding="async"></figure>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Design process</span>
+        <div>
+          <h2 class="h display">From persona to flows</h2>
+          <div class="body">
+            <p>The primary persona, Arjun, is a second-year B.Tech student in Nagpur who learns web development in the evenings on a phone, has started 6+ courses and finished none. His goal isn't "learn CSS" — it's <strong>build one real project he can show an interviewer.</strong></p>
+            <p>That reframed onboarding. Instead of asking "what do you want to learn?", Nudge asks for the main goal, a realistic daily time budget (5 minutes is a valid answer), and a link to the first course. Three steps, under a minute.</p>
+          </div>
+          <div class="gallery rv" role="list">
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s01.webp" alt="Create account screen" loading="lazy"></div><figcaption>Create account</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s03.webp" alt="Step 1 of 3: what's your main goal" loading="lazy"></div><figcaption>01 · Main goal</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s04.webp" alt="Step 2 of 3: how much time can you study daily, from 5 minutes to 1 hour+" loading="lazy"></div><figcaption>02 · Realistic time</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s05.webp" alt="Step 3 of 3: add your first course by pasting a YouTube, Coursera or Udemy link" loading="lazy"></div><figcaption>03 · Paste a link</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s06.webp" alt="Home screen: Good evening Arjun, 4-day streak, today's goal 10 minutes" loading="lazy"></div><figcaption>Home</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KEY DECISIONS ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Key decisions</span>
+        <div>
+          <h2 class="h display">Four decisions that made it Nudge</h2>
+          <div class="decisions rv">
+            <article class="decision">
+              <span class="n">Decision 01</span>
+              <h4>Recovery mode instead of a broken streak</h4>
+              <p>Miss two days and the app says "That's okay. Your progress is still here," then offers a 5-minute catch-up or "remind me tonight."</p>
+              <p class="why"><b>Why:</b> the research said people quit at the guilt step, not the motivation step. Removing the punishment removes the reason to avoid opening the app.</p>
+              <figure class="img reveal-img"><img src="assets/img/nudge-s09.webp" alt="Recovery screen: You missed 2 days. That's okay. Start 5-minute catch-up or remind me tonight." loading="lazy"></figure>
+            </article>
+            <article class="decision">
+              <span class="n">Decision 02</span>
+              <h4>Bring your own content</h4>
+              <p>Paste a YouTube playlist or a Coursera link. Nudge turns it into a lesson list and opens the source when you're ready to watch.</p>
+              <p class="why"><b>Why:</b> 87% of participants already learn on YouTube. Competing with that is a losing strategy; wrapping it is not.</p>
+              <figure class="img reveal-img"><img src="assets/img/nudge-s07.webp" alt="Course screen: CSS Full Course from YouTube, 5 of 18 lessons done, open in YouTube" loading="lazy"></figure>
+            </article>
+            <article class="decision">
+              <span class="n">Decision 03</span>
+              <h4>Sessions measured in minutes, not modules</h4>
+              <p>Daily goals start at 5 minutes. A lesson ends with one quick check and a small XP reward for showing up.</p>
+              <p class="why"><b>Why:</b> irregular schedules were a top pain point. A goal you can hit on a bad day is the only goal that builds a habit.</p>
+              <figure class="img reveal-img"><img src="assets/img/nudge-s08.webp" alt="Lesson screen with a quick check question and mark done for 10 XP" loading="lazy"></figure>
+            </article>
+            <article class="decision">
+              <span class="n">Decision 04</span>
+              <h4>Show growth, not just completion</h4>
+              <p>The progress screen tracks lessons done, time spent, skills unlocked and a self-rated confidence score before vs now.</p>
+              <p class="why"><b>Why:</b> "no visible progress" was a pain point. Confidence moving from 3.3 to 6.3 is a story a percent bar can't tell.</p>
+              <figure class="img reveal-img"><img src="assets/img/nudge-s10.webp" alt="Growth screen: lessons done, time spent, confidence before vs now, skills unlocked" loading="lazy"></figure>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SYSTEM + FINAL ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Design system</span>
+        <div>
+          <h2 class="h display">Calm by default</h2>
+          <div class="body">
+            <p>A restrained system: one primary green for trust and focus, one secondary green for energy and progress, a neutral grey scale, and Inter throughout for readability. Everything on screen had to feel like a companion, not a dashboard.</p>
+          </div>
+        </div>
+      </div>
+      <figure class="img reveal-img full"><img src="assets/img/nudge-ds.webp" alt="Nudge design system: primary green #152B1C, secondary green #C5FFB1, neutral greys, Inter type scale, and three principles — simple, encouraging, non-judgmental" loading="lazy" decoding="async"></figure>
+    </section>
+
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Final design</span>
+        <div>
+          <h2 class="h display">The full flow</h2>
+          <div class="body">
+            <p>Thirteen screens covering onboarding, daily learning, recovery, growth, peers and an AI doubt-support feature that answers a question and points back to the related lesson.</p>
+          </div>
+          <div class="gallery rv" role="list">
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s02.webp" alt="Welcome back screen with a 4-day streak" loading="lazy"></div><figcaption>Welcome back</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s06.webp" alt="Home" loading="lazy"></div><figcaption>Home</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s07.webp" alt="Course lesson list" loading="lazy"></div><figcaption>Course</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s08.webp" alt="Lesson with quick check" loading="lazy"></div><figcaption>Lesson</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s09.webp" alt="Recovery after missing two days" loading="lazy"></div><figcaption>Recovery</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s10.webp" alt="Growth and confidence" loading="lazy"></div><figcaption>Growth</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s11.webp" alt="Study together — join groups learning the same topic" loading="lazy"></div><figcaption>Peers</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s12.webp" alt="Ask a doubt — AI answer with a related lesson link" loading="lazy"></div><figcaption>AI doubt support</figcaption></figure>
+            <figure role="listitem"><div class="img reveal-img"><img src="assets/img/nudge-s13.webp" alt="Course completed: 18 lessons, 21-day streak, 180 XP" loading="lazy"></div><figcaption>Completed</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <figure class="img reveal-img full"><img src="assets/img/nudge-solution.webp" alt="Introducing Nudge — key features: gentle reminders, progress visibility, flexible learning goals, recovery-based habit tracking" loading="lazy" decoding="async"></figure>
+    </section>
+
+    <!-- ============ OUTCOME ============ -->
+    <section class="cs container">
+      <div class="row">
+        <span class="label">Outcome</span>
+        <div>
+          <h2 class="h display">What it's designed to move</h2>
+          <div class="body">
+            <p>Nudge is a concept, so these are the <strong>targets the design is built around</strong> — not measured results. They're the numbers I'd instrument first if this shipped.</p>
+          </div>
+          <ul class="stats target rv" aria-label="Target outcomes">
+            <li><span class="n">78%</span><p class="t">of users return after missing a day</p></li>
+            <li><span class="n">2.6×</span><p class="t">better consistency with the recovery-first approach</p></li>
+            <li><span class="n">65%</span><p class="t">of users complete more lessons</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFLECTION ============ -->
+    <section class="cs container on-ink" style="border-radius:var(--radius-lg); padding-inline:var(--gutter); margin-block:var(--s-4)">
+      <div class="row">
+        <span class="label">Reflection</span>
+        <div>
+          <h2 class="h display">What I learned</h2>
+          <div class="body">
+            <blockquote>People don't quit learning because they lack ambition. They quit because staying consistent is difficult — and most products make the comeback harder than the start.</blockquote>
+            <p>Designing for recovery rather than perfection changed every screen, including the ones that had nothing to do with missing days. If I took this further I'd prototype the recovery flow first, test it with the same 15 people, and only then touch the visual system.</p>
+            <p>Small steps. Consistent action. Real progress. That's the Nudge way — and, honestly, it's how I try to work too.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEXT ============ -->
+    <section class="container cs-next">
+      <p class="mono muted">Next</p>
+      <h2 class="h display">See what shipped.</h2>
+      <div class="links">
+        <a class="btn solid" href="index.html#p-maavie">Maavie Rituals <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn" href="index.html#p-iskcon">ISKCON Austin <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn" href="index.html#contact">Get in touch <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
