@@ -7,11 +7,7 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const fine   = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* ---------- Hero entrance ---------- */
-  const hero = $(".hero");
-  const ready = () => hero && hero.classList.add("is-ready");
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready).catch(ready); else ready();
-  setTimeout(ready, 1200); // safety net if fonts hang
+  /* Hero entrance and parallax live in js/hero.js */
 
   /* ---------- Scroll reveal ---------- */
   const io = new IntersectionObserver((entries) => {

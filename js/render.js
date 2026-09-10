@@ -17,19 +17,23 @@
   set("status", S.status);
   set("location", S.location);
   set("hero-lede", S.hero.lede);
+  set("hero-role", S.hero.role);
   set("about-heading", S.about.heading);
 
   /* ---------- hero ---------- */
-  const h1 = $('[data-render="hero-headline"]');
-  if (h1) {
-    const spec = h1.innerHTML; // keep the spec frame
-    h1.innerHTML = S.hero.headline.map((l) => `<span class="line"><span>${esc(l)}</span></span>`).join("") + spec;
+  // each line gets its own overflow-hidden wrapper so it can rise into place
+  const heroName = $('[data-render="hero-name"]');
+  if (heroName) {
+    // joined with a newline so the accessible name reads "Himanshu Ramteke"
+    heroName.innerHTML = S.hero.name
+      .map((l) => `<span class="ln"><span>${esc(l)}</span></span>`)
+      .join("\n");
   }
-  const p = $('[data-cta="primary"]'), s = $('[data-cta="secondary"]');
-  if (p) { p.href = S.hero.primaryCta.href; p.firstElementChild.textContent = S.hero.primaryCta.label; }
-  if (s) { s.href = S.hero.secondaryCta.href; s.firstElementChild.textContent = S.hero.secondaryCta.label; }
-  const facts = $('[data-render="hero-facts"]');
-  if (facts) facts.innerHTML = S.hero.facts.map((f) => `<div><span class="k">${esc(f.k)}</span><span class="v">${esc(f.v)}</span></div>`).join("");
+  const portrait = $(".chero__portrait img");
+  if (portrait && S.hero.portrait) {
+    portrait.src = S.hero.portrait.src;
+    portrait.alt = S.hero.portrait.alt;
+  }
 
   /* ---------- strip ---------- */
   const strip = $('[data-render="strip"]');

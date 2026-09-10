@@ -1,0 +1,279 @@
+/* =============================================================
+   CINEMATIC HERO
+   Self-contained: every rule is scoped to .chero so nothing
+   else on the page is affected. Layer order (back → front):
+   1 environment · 2 amber atmosphere · 3 portrait
+   4 typography · 5 foreground metadata · grain · fade-out
+   ============================================================= */
+.chero {
+  /* local palette — deliberately dark, independent of the page tokens */
+  --c-bg:      #090807;
+  --c-fg:      #F2EEE7;
+  --c-mut:     #8A817A;
+  --c-mut-2:   #5C554E;
+  --c-amber:   #E08A3C;
+  --c-amber-d: #A85B22;
+  --c-line:    rgba(242, 238, 231, 0.09);
+
+  --sp: 0;                 /* scroll progress 0 → 1, written by js/hero.js */
+  --enter: 0;              /* 0 before entrance, 1 after */
+
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-content: end;
+  padding-block: 8rem 0;
+  background: var(--c-bg);
+  color: var(--c-fg);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* ---------- Layer 1 — environment: grid, panels, horizon ---------- */
+.chero__env {
+  position: absolute; inset: -6% -2% 0; z-index: 1; pointer-events: none;
+  transform: translate3d(0, calc(var(--sp) * 3vh), 0);
+}
+.chero__env::before {
+  /* architectural grid, barely there */
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 7.5rem 7.5rem;
+  mask-image: radial-gradient(ellipse 70% 60% at 62% 34%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 62% 34%, #000 0%, transparent 78%);
+  opacity: .85;
+}
+.chero__env::after {
+  /* translucent vertical panels — a room, not a decoration */
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 46%, rgba(242,238,231,.028) 46% 47.2%, transparent 47.2%),
+    linear-gradient(90deg, transparent 0 58%, rgba(242,238,231,.045) 58% 62%, transparent 62%),
+    linear-gradient(90deg, transparent 0 74%, rgba(242,238,231,.022) 74% 80%, transparent 80%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 72%, transparent 96%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 72%, transparent 96%);
+}
+
+/* ---------- Layer 2 — amber atmosphere ---------- */
+.chero__glow {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  transform: translate3d(0, calc(var(--sp) * 7vh), 0);
+  opacity: calc(.55 + var(--enter) * .45);
+  transition: opacity 1.8s var(--ease-out, cubic-bezier(.16,1,.3,1)) .2s;
+}
+.chero__glow::before {
+  /* tungsten source behind the figure */
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(34rem 40rem at 76% 44%, rgba(224,138,60,.22), transparent 64%),
+    radial-gradient(20rem 26rem at 66% 62%, rgba(168,91,34,.16), transparent 66%);
+}
+.chero__glow::after {
+  /* soft light beam raking across the room */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(104deg, transparent 44%, rgba(224,138,60,.075) 56%, transparent 70%);
+  mask-image: linear-gradient(180deg, #000 0, transparent 88%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0, transparent 88%);
+}
+
+/* ---------- Layer 3 — the portrait ---------- */
+.chero__portrait {
+  position: absolute; z-index: 4; pointer-events: none;
+  right: clamp(-2rem, 2vw, 4rem);
+  bottom: 0;
+  height: clamp(26rem, 88svh, 52rem);
+  width: auto;
+  aspect-ratio: 670 / 980;
+  transform: translate3d(0, calc(var(--sp) * -4vh), 0) scale(calc(1 + var(--sp) * .035));
+  transform-origin: 60% 100%;
+}
+.chero__portrait img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;
+  /* the feather is baked into the asset's alpha channel, so the figure has
+     no frame edge in any browser and needs no CSS mask */
+  opacity: var(--enter);
+  filter: contrast(1.04) saturate(1.02);
+  transition: opacity 2.2s var(--ease-out, cubic-bezier(.16,1,.3,1)) .15s;
+}
+
+/* ---------- Layer 4 — typography ---------- */
+/* The name block sits BEHIND the portrait (z 3 vs 4): the tail of each
+   line slides under his shoulder instead of sitting on top of it.
+   The role/lede live far enough left that nothing ever covers them. */
+.chero__type {
+  position: relative; z-index: 3;
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin-inline: auto;
+  padding-bottom: clamp(6rem, 14vh, 9rem);
+  transform: translate3d(0, calc(var(--sp) * -9vh), 0);
+}
+
+.chero__index {
+  display: flex; align-items: center; gap: .9rem;
+  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--c-mut);
+  margin-bottom: clamp(.75rem, 2vh, 1.4rem);
+}
+.chero__index i { display: block; width: clamp(2rem, 5vw, 4.5rem); height: 1px; background: var(--c-mut-2); }
+
+.chero__name {
+  font-family: "Archivo", var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(2.9rem, 10.6vw, 10rem);
+  line-height: .845;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.chero__name .ln { display: block; overflow: hidden; }
+.chero__name .ln > span {
+  display: block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 1.5s var(--ease-out, cubic-bezier(.16,1,.3,1));
+}
+.chero.is-ready .chero__name .ln:nth-child(1) > span { transform: none; transition-delay: .12s; }
+.chero.is-ready .chero__name .ln:nth-child(2) > span { transform: none; transition-delay: .26s; }
+
+.chero__role {
+  font-family: var(--font-mono); font-size: clamp(.62rem, 1vw, .74rem);
+  letter-spacing: .26em; text-transform: uppercase; color: var(--c-fg);
+  margin-top: clamp(1rem, 2.6vh, 1.8rem);
+}
+.chero__lede {
+  margin-top: clamp(.9rem, 2.2vh, 1.5rem);
+  max-width: 30ch;
+  font-size: clamp(.95rem, 1.15vw, 1.12rem);
+  line-height: 1.5;
+  color: var(--c-mut);
+}
+.chero__lede b { color: var(--c-fg); font-weight: 400; }
+
+.chero__role, .chero__lede {
+  opacity: 0; transform: translate3d(0, 14px, 0);
+  transition: opacity 1.1s var(--ease-out, cubic-bezier(.16,1,.3,1)), transform 1.1s var(--ease-out, cubic-bezier(.16,1,.3,1));
+}
+.chero.is-ready .chero__role { opacity: 1; transform: none; transition-delay: .62s; }
+.chero.is-ready .chero__lede { opacity: 1; transform: none; transition-delay: .74s; }
+
+/* ---------- Layer 5 — foreground metadata ---------- */
+.chero__meta { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
+.chero__meta > * { position: absolute; pointer-events: auto; }
+.chero__meta .m {
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--c-mut); line-height: 1.9;
+}
+.chero__meta .m--note  { top: clamp(6rem, 12vh, 9rem); left: var(--gutter); max-width: 11rem; }
+.chero__meta .m--note::after { content: ""; display: block; width: 2.2rem; height: 1px; background: var(--c-mut-2); margin-top: .9rem; }
+.chero__meta .m--side  { top: 46%; right: var(--gutter); writing-mode: vertical-rl; letter-spacing: .34em; display: none; }
+.chero__meta .m--work  { bottom: clamp(2rem, 5vh, 3.2rem); right: var(--gutter); text-align: right; }
+.chero__meta .m--work b { display: block; color: var(--c-mut-2); font-weight: 400; }
+
+.chero__scroll {
+  bottom: clamp(2rem, 5vh, 3.2rem); left: var(--gutter);
+  display: flex; align-items: center; gap: .9rem;
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--c-mut);
+}
+.chero__scroll .ring {
+  width: 2.6rem; height: 2.6rem; border: 1px solid var(--c-mut-2); border-radius: 50%;
+  display: grid; place-items: center; color: var(--c-fg);
+  transition: border-color var(--dur-fast, .22s), color var(--dur-fast, .22s);
+}
+.chero__scroll .ring span { animation: chero-dip 2.6s var(--ease-in-out, cubic-bezier(.65,0,.35,1)) infinite; }
+.chero__scroll:hover .ring { border-color: var(--c-amber); color: var(--c-amber); }
+@keyframes chero-dip { 0%, 100% { transform: translateY(-3px); opacity: .5 } 50% { transform: translateY(3px); opacity: 1 } }
+
+.chero__meta .m, .chero__scroll {
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-out, cubic-bezier(.16,1,.3,1));
+}
+.chero.is-ready .chero__meta .m { opacity: 1; transition-delay: .9s; }
+.chero.is-ready .chero__scroll { opacity: 1; transition-delay: 1.05s; }
+/* metadata quietly recedes as you scroll away */
+.chero__meta { opacity: calc(1 - var(--sp) * 1.6); }
+
+/* ---------- Grain + fade-out into the page ---------- */
+.chero__grain {
+  position: absolute; inset: 0; z-index: 7; pointer-events: none;
+  opacity: .5; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+.chero__fade {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 12svh; z-index: 8;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, var(--paper, #F4F1EA) 96%);
+  opacity: calc(.06 + var(--sp) * .94);
+}
+
+/* =============================================================
+   TABLET — same idea, fewer effects
+   ============================================================= */
+@media (min-width: 720px) {
+  .chero__meta .m--side { display: block; }
+}
+/* Between 721 and 1199 the figure eats a bigger share of the width, so the
+   name steps down to keep every letter of it readable. */
+@media (max-width: 1199px) and (min-width: 721px) {
+  .chero__portrait { height: clamp(24rem, 82svh, 48rem); right: clamp(-4rem, -1.5vw, 0rem); }
+  .chero__name { font-size: clamp(3rem, 9.4vw, 7.2rem); }
+  .chero__lede { max-width: 26ch; }
+  .chero__env::after { opacity: .3; }
+  .chero__meta .m--note { top: clamp(6.5rem, 12vh, 8rem); }
+}
+
+/* =============================================================
+   MOBILE — recomposed, not shrunk:
+   figure sits high and centred, name reads underneath it
+   ============================================================= */
+@media (max-width: 720px) {
+  .chero {
+    align-content: stretch;
+    padding-block: 0;
+    grid-template-rows: 1fr auto;
+  }
+  /* the figure moves into the flow, high and centred; the name reads beneath it */
+  .chero__portrait {
+    position: relative;
+    grid-row: 1; align-self: start; justify-self: center;
+    right: auto; bottom: auto;
+    height: auto;
+    width: min(78vw, 19rem);
+    aspect-ratio: 670 / 880;
+    margin-top: 4.5rem;
+    transform: none;
+  }
+  .chero__type {
+    grid-row: 2;
+    margin-top: -2.5rem;
+    padding-bottom: clamp(5.5rem, 15vh, 7rem);
+    transform: none;
+  }
+  .chero__name { font-size: clamp(2.5rem, 13.5vw, 4rem); letter-spacing: -0.03em; }
+  .chero__lede { max-width: 34ch; }
+
+  /* one annotation is enough at this size */
+  .chero__meta .m--note { display: none; }
+  .chero__meta .m--work { bottom: clamp(1.5rem, 4vh, 2.4rem); }
+  .chero__scroll { bottom: clamp(1.5rem, 4vh, 2.4rem); gap: .7rem; }
+  .chero__scroll .ring { width: 2.1rem; height: 2.1rem; }
+  .chero__scroll .label { display: none; }
+
+  .chero__env, .chero__glow { transform: none; }
+  .chero__env::after { display: none; }
+  .chero__grain { opacity: .35; }
+}
+
+/* =============================================================
+   REDUCED MOTION — keep the composition, drop the movement
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .chero { --sp: 0; --enter: 1; }
+  .chero__env, .chero__glow, .chero__portrait, .chero__type { transform: none !important; }
+  .chero__name .ln > span { transform: none !important; }
+  .chero__role, .chero__lede, .chero__meta .m, .chero__scroll { opacity: 1 !important; transform: none !important; }
+  .chero__portrait img { opacity: 1 !important; }
+  .chero__scroll .ring span { animation: none; }
+  .chero__meta { opacity: 1; }
+}

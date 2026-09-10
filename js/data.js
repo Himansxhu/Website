@@ -24,18 +24,18 @@ window.SITE = {
     // { label: "GitHub",  url: "https://github.com/your-handle", short: "gh" },
   ],
 
-  /* ---------- Hero ---------- */
+  /* ---------- Hero ----------
+     The name is set line by line so it can be animated and layered.
+     Keep it to two lines — it's sized to fill the viewport.
+     -------------------------------------------------------------- */
   hero: {
-    eyebrow: "UI/UX Designer — AI Product Designer",
-    headline: ["Designed for how", "people actually behave.", "Built to ship."],
-    lede: "I turn product problems into user flows, interfaces, brand systems and working frontends — using Figma and AI-assisted development to get from idea to shipped, faster.",
-    primaryCta:   { label: "See the work",       href: "#work" },
-    secondaryCta: { label: "Read the Nudge case study", href: "nudge.html" },
-    facts: [
-      { k: "Focus",   v: "Product · UX · AI" },
-      { k: "Shipped", v: "2 live products" },
-      { k: "Based",   v: "Bhilai, IN" }
-    ]
+    name: ["Himanshu", "Ramteke"],
+    role: "UI/UX Designer · AI Product Designer",
+    lede: "Designing digital products where human experience meets intelligent technology.",
+    portrait: {
+      src: "assets/img/himanshu-portrait.webp",
+      alt: "Portrait of Himanshu Ramteke, lit from the right by warm studio light."
+    }
   },
 
   /* ---------- Selected work ----------

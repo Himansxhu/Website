@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Himanshu Ramteke — UI/UX & AI Product Designer</title>
   <meta name="description" content="Himanshu Ramteke is a UI/UX and AI Product Designer who turns product problems into flows, interfaces, brand systems and working frontends.">
-  <meta name="theme-color" content="#F4F1EA">
+  <meta name="theme-color" content="#090807">
   <meta property="og:title" content="Himanshu Ramteke — UI/UX & AI Product Designer">
   <meta property="og:description" content="Designed for how people actually behave. Built to ship.">
   <meta property="og:type" content="website">
@@ -13,10 +13,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="preload" as="image" href="assets/img/himanshu-portrait.webp">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163B2E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23D4F04B'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -55,25 +57,40 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero container" id="top" aria-label="Introduction">
-      <div class="grid-bg" aria-hidden="true"></div>
-      <p class="eyebrow mono"><span class="pulse" aria-hidden="true"></span><span data-text="status"></span><span aria-hidden="true">·</span><span data-text="location"></span></p>
+    <section class="chero" id="top" aria-label="Introduction">
+      <!-- 1 · environment -->
+      <div class="chero__env" aria-hidden="true"></div>
+      <!-- 2 · amber atmosphere -->
+      <div class="chero__glow" aria-hidden="true"></div>
 
-      <h1 class="headline display" data-render="hero-headline">
-        <span class="spec" aria-hidden="true"><i></i><span class="tag">Frame 01 · Himanshu Ramteke</span><span class="dim">UI/UX · AI Product Design</span></span>
-      </h1>
+      <!-- 4 · portrait -->
+      <figure class="chero__portrait">
+        <img src="assets/img/himanshu-portrait.webp" width="670" height="980"
+             alt="Portrait of Himanshu Ramteke, lit from the right by warm studio light."
+             fetchpriority="high" decoding="async">
+      </figure>
 
-      <div class="bottom">
-        <div>
-          <p class="lede rv" data-text="hero-lede"></p>
-          <div class="ctas rv" style="margin-top: var(--s-4)">
-            <a class="btn solid" data-cta="primary" href="#work"><span></span><span class="arr" aria-hidden="true">↓</span></a>
-            <a class="btn" data-cta="secondary" href="nudge.html"><span></span><span class="arr" aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="facts rv" data-render="hero-facts"></div>
+      <!-- 3 · typography -->
+      <div class="chero__type">
+        <p class="chero__index"><span>01</span><i aria-hidden="true"></i><span data-text="location"></span></p>
+        <h1 class="chero__name" data-render="hero-name"></h1>
+        <p class="chero__role" data-text="hero-role"></p>
+        <p class="chero__lede" data-text="hero-lede"></p>
       </div>
-      <span class="scroll-hint" aria-hidden="true">Scroll</span>
+
+      <!-- 5 · foreground metadata -->
+      <div class="chero__meta">
+        <p class="m m--note">Designing at the intersection of people and machines</p>
+        <p class="m m--side">UI/UX · AI · Product</p>
+        <p class="m m--work">2024 — 2026<b>Selected work</b></p>
+        <a class="chero__scroll" href="#work">
+          <span class="ring" aria-hidden="true"><span>↓</span></span>
+          <span class="label">Scroll to explore</span>
+        </a>
+      </div>
+
+      <div class="chero__grain" aria-hidden="true"></div>
+      <div class="chero__fade" aria-hidden="true"></div>
     </section>
 
     <div class="strip" aria-hidden="true">
@@ -156,5 +173,6 @@
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/hero.js"></script>
 </body>
 </html>
