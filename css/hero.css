@@ -6,14 +6,14 @@
    4 typography · 5 foreground metadata · grain · fade-out
    ============================================================= */
 .chero {
-  /* local palette — deliberately dark, independent of the page tokens */
-  --c-bg:      #090807;
-  --c-fg:      #F2EEE7;
-  --c-mut:     #8A817A;
-  --c-mut-2:   #5C554E;
-  --c-amber:   #E08A3C;
-  --c-amber-d: #A85B22;
-  --c-line:    rgba(242, 238, 231, 0.09);
+  /* the hero is the darkest room of the same house — every value below
+     comes from tokens.css, so the palette has one source of truth */
+  --c-bg:      var(--ink);
+  --c-fg:      var(--fg-ink);
+  --c-mut:     var(--mut-ink);
+  --c-mut-2:   #7A7267;
+  --c-amber:   var(--accent-ink);
+  --c-line:    rgba(244, 241, 234, 0.09);
 
   --sp: 0;                 /* scroll progress 0 → 1, written by js/hero.js */
   --enter: 0;              /* 0 before entrance, 1 after */
@@ -112,16 +112,16 @@
 
 .chero__index {
   display: flex; align-items: center; gap: .9rem;
-  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .22em;
+  font-family: var(--font-mono); font-size: var(--t-mono); letter-spacing: var(--track-mono);
   text-transform: uppercase; color: var(--c-mut);
   margin-bottom: clamp(.75rem, 2vh, 1.4rem);
 }
 .chero__index i { display: block; width: clamp(2rem, 5vw, 4.5rem); height: 1px; background: var(--c-mut-2); }
 
 .chero__name {
-  font-family: "Archivo", var(--font-sans);
+  font-family: var(--font-poster);
   font-weight: 800;
-  font-size: clamp(2.9rem, 10.6vw, 10rem);
+  font-size: var(--t-hero);
   line-height: .845;
   letter-spacing: -0.035em;
   text-transform: uppercase;
@@ -137,8 +137,8 @@
 .chero.is-ready .chero__name .ln:nth-child(2) > span { transform: none; transition-delay: .26s; }
 
 .chero__role {
-  font-family: var(--font-mono); font-size: clamp(.62rem, 1vw, .74rem);
-  letter-spacing: .26em; text-transform: uppercase; color: var(--c-fg);
+  font-family: var(--font-mono); font-size: var(--t-mono);
+  letter-spacing: var(--track-mono); text-transform: uppercase; color: var(--c-fg);
   margin-top: clamp(1rem, 2.6vh, 1.8rem);
 }
 .chero__lede {
@@ -161,19 +161,19 @@
 .chero__meta { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
 .chero__meta > * { position: absolute; pointer-events: auto; }
 .chero__meta .m {
-  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .24em;
+  font-family: var(--font-mono); font-size: var(--t-mono); letter-spacing: var(--track-mono);
   text-transform: uppercase; color: var(--c-mut); line-height: 1.9;
 }
 .chero__meta .m--note  { top: clamp(6rem, 12vh, 9rem); left: var(--gutter); max-width: 11rem; }
 .chero__meta .m--note::after { content: ""; display: block; width: 2.2rem; height: 1px; background: var(--c-mut-2); margin-top: .9rem; }
-.chero__meta .m--side  { top: 46%; right: var(--gutter); writing-mode: vertical-rl; letter-spacing: .34em; display: none; }
+.chero__meta .m--side  { top: 46%; right: var(--gutter); writing-mode: vertical-rl; letter-spacing: .3em; display: none; }
 .chero__meta .m--work  { bottom: clamp(2rem, 5vh, 3.2rem); right: var(--gutter); text-align: right; }
-.chero__meta .m--work b { display: block; color: var(--c-mut-2); font-weight: 400; }
+.chero__meta .m--work b { display: block; color: var(--c-mut); font-weight: 400; }
 
 .chero__scroll {
   bottom: clamp(2rem, 5vh, 3.2rem); left: var(--gutter);
   display: flex; align-items: center; gap: .9rem;
-  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .24em;
+  font-family: var(--font-mono); font-size: var(--t-mono); letter-spacing: var(--track-mono);
   text-transform: uppercase; color: var(--c-mut);
 }
 .chero__scroll .ring {

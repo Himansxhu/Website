@@ -65,10 +65,11 @@
         <div class="visual">
           ${pr.images.map((im, i) => `<figure class="img reveal-img">${i === 0 && pr.logo ? `<span class="logo-chip"><img src="${esc(pr.logo)}" alt="" loading="lazy"></span>` : ""}<img src="${esc(im.src)}" alt="${esc(im.alt)}" loading="lazy" decoding="async"></figure>`).join("")}
         </div>
+        ${pr.note ? `<p class="visual-note">${esc(pr.note)}</p>` : ""}
       </article>`,
 
     dark: (pr) => `
-      <article class="project dark on-pine" id="p-${esc(pr.id)}">
+      <article class="project dark on-ink-2" id="p-${esc(pr.id)}">
         <div class="copy rv">
           ${meta(pr)}
           ${name(pr)}
@@ -117,7 +118,7 @@
   if (fe) fe.innerHTML = `
     <header class="sec-head rv">
       <span class="idx">${esc(F.eyebrow)}</span>
-      <h2 class="title display">${esc(F.name)} — <em>${esc(F.oneLiner)}</em></h2>
+      <h2 class="title display"><em>${esc(F.name)}</em> — ${esc(F.oneLiner)}</h2>
       <p class="aside">A self-initiated product concept, researched with real learners. The one I'd want you to read.</p>
     </header>
     ${img(F.hero, "hero-img rv")}
@@ -209,7 +210,7 @@
       <span>© <span data-year></span> ${esc(S.name)}</span>
       <span>${esc(S.location)}</span>
       <span>Designed & built by hand — HTML, CSS, JS</span>
-      <span>Type: Instrument Serif · Instrument Sans · JetBrains Mono</span>
+      <span>Type: Archivo · Instrument Serif · Instrument Sans · JetBrains Mono</span>
     </div>`;
 
   $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));

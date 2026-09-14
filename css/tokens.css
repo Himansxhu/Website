@@ -1,49 +1,63 @@
 /* =============================================================
-   DESIGN TOKENS
-   One place for colour, type, spacing, motion.
+   DESIGN TOKENS — the single source of truth.
+   See DESIGN.md in the project root for the rules behind these.
+
+   Two rooms, one light source:
+     · PAPER — warm bone, the reading room
+     · INK   — warm black, the dark mirror (hero, featured, contact)
+   One accent — burnt orange, taken from the tungsten light in the
+   hero portrait. It has two values so it stays legible on both
+   rooms, but it is the SAME colour, never two accents.
    ============================================================= */
 :root {
-  /* ---- Colour: neutrals ---- */
-  --paper:      #F4F1EA;   /* warm bone — page background */
-  --paper-2:    #EBE7DD;   /* slightly deeper bone — alt sections, cards */
-  --paper-3:    #E1DCCF;   /* borders on paper */
-  --ink:        #101512;   /* green-black — primary text, dark sections */
-  --ink-2:      #1A211C;   /* raised surfaces on ink */
-  --ink-3:      #2A342E;   /* borders on ink */
-  --muted:      #5F6862;   /* secondary text on paper */
-  --muted-ink:  #A9B1AA;   /* secondary text on ink */
+  /* ---- Paper: the light room ---- */
+  --paper:      #F4F1EA;   /* page */
+  --paper-2:    #EBE7DD;   /* alt sections, insets */
+  --paper-3:    #E1DCCF;   /* ghost numerals, heavy rules */
 
-  /* ---- Colour: brand ---- */
-  --pine:       #163B2E;   /* primary brand — deep pine */
-  --pine-2:     #0F2A21;
-  --lime:       #D4F04B;   /* accent — highlight, never body text */
-  --lime-2:     #BFE02E;
-  --clay:       #E2653A;   /* secondary accent — sparingly */
+  /* ---- Ink: the dark mirror. One family, two tiers. ---- */
+  --ink:        #090807;   /* primary dark surface — matches the portrait's black point */
+  --ink-2:      #1C1712;   /* the one step up: panels sitting on ink */
+  --ink-3:      #2A241D;   /* borders on ink */
 
-  /* ---- Semantic ---- */
+  /* ---- Text ---- */
+  --fg-paper:   #14110D;   /* 16.7:1 on paper */
+  --mut-paper:  #6A625A;   /*  5.3:1 on paper */
+  --fg-ink:     #F4F1EA;   /* 17.7:1 on ink   */
+  --mut-ink:    #ADA79C;   /*  8.4:1 on ink   */
+
+  /* ---- The one accent, per surface ---- */
+  --accent-paper: #A8441A; /* 5.3:1 on paper — safe for body-size text */
+  --accent-ink:   #E08A3C; /* 7.5:1 on ink — the hero's tungsten, exactly */
+
+  /* ---- Semantic: paper is the default room ---- */
   --bg:         var(--paper);
-  --fg:         var(--ink);
-  --fg-2:       var(--muted);
-  --line:       rgba(16, 21, 18, 0.14);
-  --line-strong:rgba(16, 21, 18, 0.35);
-  --accent:     var(--pine);
-  --accent-contrast: var(--lime);
-  --focus:      var(--clay);
+  --fg:         var(--fg-paper);
+  --fg-2:       var(--mut-paper);
+  --line:       rgba(20, 17, 13, 0.13);
+  --line-strong:rgba(20, 17, 13, 0.32);
+  --accent:     var(--accent-paper);
+  --on-accent:  var(--paper);        /* text sitting on an accent fill */
+  --focus:      var(--accent-paper);
 
-  /* ---- Type ---- */
+  /* ---- Type ----
+     One ramp: 11 · 13 · 15 · 17 · 20 · 26 · 34 · 46 · 64 · hero */
   --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-sans:    "Instrument Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-poster:  "Archivo", var(--font-sans);   /* hero name only — never below 56px */
 
-  /* fluid type scale */
-  --t-hero:   clamp(2.9rem, 7.2vw, 7.6rem);
-  --t-h1:     clamp(2.4rem, 5vw, 4.8rem);
-  --t-h2:     clamp(1.9rem, 3.6vw, 3.4rem);
-  --t-h3:     clamp(1.35rem, 2vw, 1.9rem);
-  --t-lead:   clamp(1.1rem, 1.5vw, 1.35rem);
-  --t-body:   clamp(1rem, 1.1vw, 1.0625rem);
-  --t-small:  0.875rem;
-  --t-mono:   0.75rem;
+  --t-hero:   clamp(2.9rem, 10.6vw, 10rem);
+  --t-h1:     clamp(2.25rem, 4.6vw, 4rem);
+  --t-h2:     clamp(1.75rem, 3.2vw, 2.875rem);
+  --t-h3:     clamp(1.25rem, 1.9vw, 1.625rem);
+  --t-lead:   clamp(1.0625rem, 1.4vw, 1.25rem);
+  --t-body:   1.0625rem;
+  --t-small:  0.9375rem;
+  --t-mono:   0.6875rem;
+
+  /* every mono label on the site uses this tracking — the "spine" */
+  --track-mono: 0.18em;
 
   /* ---- Layout ---- */
   --max:      1440px;
@@ -55,7 +69,7 @@
   --s-4: 2rem;
   --s-5: 3rem;
   --s-6: clamp(3rem, 6vw, 5rem);
-  --s-7: clamp(4.5rem, 10vw, 9rem);   /* section rhythm */
+  --s-7: clamp(4.5rem, 10vw, 9rem);
   --radius: 4px;
   --radius-lg: 12px;
 
@@ -67,27 +81,23 @@
   --dur-slow: 900ms;
 }
 
-/* Dark surface context — apply .on-ink to any dark section */
-.on-ink {
-  --bg: var(--ink);
-  --fg: var(--paper);
-  --fg-2: var(--muted-ink);
-  --line: rgba(244, 241, 234, 0.14);
-  --line-strong: rgba(244, 241, 234, 0.4);
-  --accent: var(--lime);
-  --accent-contrast: var(--ink);
-  background: var(--bg);
+/* =============================================================
+   THE DARK MIRROR
+   .on-ink   — the primary dark room (hero, featured, contact)
+   .on-ink-2 — one step up, for a panel sitting inside the dark
+   Everything downstream reads --bg / --fg / --accent, so a whole
+   section flips room by swapping one class.
+   ============================================================= */
+.on-ink,
+.on-ink-2 {
+  --fg:          var(--fg-ink);
+  --fg-2:        var(--mut-ink);
+  --line:        rgba(244, 241, 234, 0.13);
+  --line-strong: rgba(244, 241, 234, 0.34);
+  --accent:      var(--accent-ink);
+  --on-accent:   var(--ink);
+  --focus:       var(--accent-ink);
   color: var(--fg);
 }
-
-.on-pine {
-  --bg: var(--pine);
-  --fg: var(--paper);
-  --fg-2: rgba(244, 241, 234, 0.7);
-  --line: rgba(244, 241, 234, 0.16);
-  --line-strong: rgba(244, 241, 234, 0.45);
-  --accent: var(--lime);
-  --accent-contrast: var(--pine);
-  background: var(--bg);
-  color: var(--fg);
-}
+.on-ink   { --bg: var(--ink);   background: var(--bg); }
+.on-ink-2 { --bg: var(--ink-2); background: var(--bg); }

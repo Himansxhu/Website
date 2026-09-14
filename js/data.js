@@ -53,10 +53,14 @@ window.SITE = {
       year: "2026",
       outcome: "Shipped end-to-end: interactive symptom quiz, a hormone explorer mapping one hormone across six body systems, expert profiles and an article hub. Brand system extended into campaigns, social and Reels.",
       url: "https://maavie-web.vercel.app",
+      /* Shown under the images. Delete this line to remove the caption. */
+      note: "Product visuals intentionally blurred — the range has not launched publicly yet.",
+      /* Alt text deliberately doesn't name individual products: the shots are
+         blurred, so describing detail nobody can see would be misleading. */
       images: [
-        { src: "assets/img/maavie-skinshot.webp", alt: "Maavie Skin Shot liquid-gel sachet styled with grapes and a glass of water" },
-        { src: "assets/img/maavie-radiance.webp", alt: "Hand holding the Maavie Radiance tube" },
-        { src: "assets/img/maavie-collagen.webp", alt: "Maavie collagen stick pack, 10g of collagen per serving" }
+        { src: "assets/img/maavie-skinshot.webp", alt: "Maavie product photography — blurred, the range is unreleased" },
+        { src: "assets/img/maavie-radiance.webp", alt: "A Maavie tube held in one hand — blurred, the range is unreleased" },
+        { src: "assets/img/maavie-collagen.webp", alt: "A Maavie bottle in a styled still life — blurred, the range is unreleased" }
       ],
       logo: "assets/img/maavie-logo.webp"
     },
