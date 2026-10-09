@@ -1,0 +1,103 @@
+/* =============================================================
+   DESIGN TOKENS — the single source of truth.
+   See DESIGN.md in the project root for the rules behind these.
+
+   Two rooms, one light source:
+     · PAPER — warm bone, the reading room
+     · INK   — warm black, the dark mirror (hero, featured, contact)
+   One accent — burnt orange, taken from the tungsten light in the
+   hero portrait. It has two values so it stays legible on both
+   rooms, but it is the SAME colour, never two accents.
+   ============================================================= */
+:root {
+  /* ---- Paper: the light room ---- */
+  --paper:      #F4F1EA;   /* page */
+  --paper-2:    #EBE7DD;   /* alt sections, insets */
+  --paper-3:    #E1DCCF;   /* ghost numerals, heavy rules */
+
+  /* ---- Ink: the dark mirror. One family, two tiers. ---- */
+  --ink:        #090807;   /* primary dark surface — matches the portrait's black point */
+  --ink-2:      #1C1712;   /* the one step up: panels sitting on ink */
+  --ink-3:      #2A241D;   /* borders on ink */
+
+  /* ---- Text ---- */
+  --fg-paper:   #14110D;   /* 16.7:1 on paper */
+  --mut-paper:  #6A625A;   /*  5.3:1 on paper */
+  --fg-ink:     #F4F1EA;   /* 17.7:1 on ink   */
+  --mut-ink:    #ADA79C;   /*  8.4:1 on ink   */
+
+  /* ---- The one accent, per surface ---- */
+  --accent-paper: #A8441A; /* 5.3:1 on paper — safe for body-size text */
+  --accent-ink:   #E08A3C; /* 7.5:1 on ink — the hero's tungsten, exactly */
+
+  /* ---- Semantic: paper is the default room ---- */
+  --bg:         var(--paper);
+  --fg:         var(--fg-paper);
+  --fg-2:       var(--mut-paper);
+  --line:       rgba(20, 17, 13, 0.13);
+  --line-strong:rgba(20, 17, 13, 0.32);
+  --accent:     var(--accent-paper);
+  --on-accent:  var(--paper);        /* text sitting on an accent fill */
+  --focus:      var(--accent-paper);
+
+  /* ---- Type ----
+     One ramp: 11 · 13 · 15 · 17 · 20 · 26 · 34 · 46 · 64 · hero */
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans:    "Instrument Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-poster:  "Archivo", var(--font-sans);   /* hero name only — never below 56px */
+
+  --t-hero:   clamp(2.9rem, 10.6vw, 10rem);
+  --t-h1:     clamp(2.25rem, 4.6vw, 4rem);
+  --t-h2:     clamp(1.75rem, 3.2vw, 2.875rem);
+  --t-h3:     clamp(1.25rem, 1.9vw, 1.625rem);
+  --t-lead:   clamp(1.0625rem, 1.4vw, 1.25rem);
+  --t-body:   1.0625rem;
+  --t-small:  0.9375rem;
+  --t-mono:   0.6875rem;
+
+  /* every mono label on the site uses this tracking — the "spine" */
+  --track-mono: 0.18em;
+
+  /* ---- Layout ---- */
+  --max:      1440px;
+  --gutter:   clamp(1.25rem, 4vw, 4rem);
+  --col-gap:  clamp(1rem, 2.5vw, 2.5rem);
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: clamp(2.5rem, 5vw, 4rem);
+  --s-7: clamp(3.5rem, 7vw, 6.5rem);
+  --radius: 4px;
+  --radius-lg: 12px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur: 480ms;
+  --dur-slow: 900ms;
+}
+
+/* =============================================================
+   THE DARK MIRROR
+   .on-ink   — the primary dark room (hero, featured, contact)
+   .on-ink-2 — one step up, for a panel sitting inside the dark
+   Everything downstream reads --bg / --fg / --accent, so a whole
+   section flips room by swapping one class.
+   ============================================================= */
+.on-ink,
+.on-ink-2 {
+  --fg:          var(--fg-ink);
+  --fg-2:        var(--mut-ink);
+  --line:        rgba(244, 241, 234, 0.13);
+  --line-strong: rgba(244, 241, 234, 0.34);
+  --accent:      var(--accent-ink);
+  --on-accent:   var(--ink);
+  --focus:       var(--accent-ink);
+  color: var(--fg);
+}
+.on-ink   { --bg: var(--ink);   background: var(--bg); }
+.on-ink-2 { --bg: var(--ink-2); background: var(--bg); }

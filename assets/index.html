@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himanshu Ramteke — UI/UX & AI Product Designer</title>
+  <meta name="description" content="Himanshu Ramteke is a UI/UX and AI Product Designer who turns product problems into flows, interfaces, brand systems and working frontends.">
+  <meta name="theme-color" content="#090807">
+  <meta property="og:title" content="Himanshu Ramteke — UI/UX & AI Product Designer">
+  <meta property="og:description" content="Designed for how people actually behave. Built to ship.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/nudge-hero.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="preload" as="image" href="assets/img/himanshu-portrait.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090807'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23A8441A'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="Himanshu Ramteke — home"><span class="dot"></span><span data-text="name">Himanshu Ramteke</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#nudge">Case study</a></li>
+          <li><a href="#creative">Creative</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#work"><span class="mono">01</span>Work</a>
+      <a href="#nudge"><span class="mono">02</span>Case study</a>
+      <a href="#creative"><span class="mono">03</span>Creative</a>
+      <a href="#about"><span class="mono">04</span>About</a>
+      <a href="#process"><span class="mono">05</span>Process</a>
+      <a href="#experience"><span class="mono">06</span>Experience</a>
+      <a href="#contact"><span class="mono">07</span>Contact</a>
+    </nav>
+    <div class="meta mono" data-render="menu-meta"></div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="chero" id="top" aria-label="Introduction">
+      <!-- 1 · environment -->
+      <div class="chero__env" aria-hidden="true"></div>
+      <!-- 2 · amber atmosphere -->
+      <div class="chero__glow" aria-hidden="true"></div>
+
+      <!-- 4 · portrait -->
+      <figure class="chero__portrait">
+        <img src="assets/img/himanshu-portrait.webp" width="670" height="980"
+             alt="Portrait of Himanshu Ramteke, lit from the right by warm studio light."
+             fetchpriority="high" decoding="async">
+      </figure>
+
+      <!-- 3 · typography -->
+      <div class="chero__type">
+        <p class="chero__index"><span>01</span><i aria-hidden="true"></i><span data-text="location"></span></p>
+        <h1 class="chero__name" data-render="hero-name"></h1>
+        <p class="chero__role" data-text="hero-role"></p>
+        <p class="chero__lede" data-text="hero-lede"></p>
+      </div>
+
+      <!-- 5 · foreground metadata -->
+      <div class="chero__meta">
+        <p class="m m--note">Designing at the intersection of people and machines</p>
+        <p class="m m--side">UI/UX · AI · Product</p>
+        <p class="m m--work">2024 — 2026<b>Selected work</b></p>
+        <a class="chero__scroll" href="#work">
+          <span class="ring" aria-hidden="true"><span>↓</span></span>
+          <span class="label">Scroll to explore</span>
+        </a>
+      </div>
+
+      <div class="chero__grain" aria-hidden="true"></div>
+      <div class="chero__fade" aria-hidden="true"></div>
+    </section>
+
+    <div class="strip" aria-hidden="true">
+      <div class="track" data-render="strip"></div>
+    </div>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section work" id="work">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">01 — Selected work</span>
+          <h2 class="title display">Work that <em>shipped</em>, and work that taught me something.</h2>
+        </header>
+        <div data-render="projects"></div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED CASE STUDY ============ -->
+    <section class="section featured on-ink" id="nudge">
+      <div class="container" data-render="featured"></div>
+    </section>
+
+    <!-- ============ CREATIVE ============ -->
+    <section class="section creative" id="creative">
+      <div class="container" data-render="creative"></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">03 — About</span>
+          <h2 class="title display" data-text="about-heading"></h2>
+        </header>
+        <div class="body" data-render="about"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section process" id="process">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">04 — How I work</span>
+          <h2 class="title display">Six steps. The order <em>matters.</em></h2>
+        </header>
+        <div class="process-grid">
+          <ol class="steps" data-render="process"></ol>
+          <div data-render="process-artefact"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">05 — Capabilities</span>
+          <h2 class="title display">Think, design, <em>build.</em></h2>
+        </header>
+        <div class="groups" data-render="skills"></div>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN × AI ============ -->
+    <section class="section ai-sec on-ink-2" id="ai">
+      <div class="container" data-render="ai"></div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section exp" id="experience">
+      <div class="container">
+        <header class="sec-head rv">
+          <span class="idx">07 — Experience</span>
+          <h2 class="title display">Where the work <em>happened.</em></h2>
+        </header>
+        <div class="list" data-render="experience"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact on-ink" id="contact">
+      <div class="container" data-render="contact"></div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/hero.js"></script>
+</body>
+</html>
