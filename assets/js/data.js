@@ -134,11 +134,17 @@ window.SITE = {
       },
       {
         label: "Brand & fashion campaigns",
-        count: "03",
+        count: "09",
         layout: "campaign",
         images: [
           { src: "assets/img/creative-campaign-01.webp", caption: "Shaista Studio — “Simple Symmetry” fashion campaign", alt: "Fashion product campaign for The Shaista Studio — a model in an embroidered blush-pink kurta beside the headline ‘Simple Symmetry’" },
           { src: "assets/img/creative-campaign-02.webp", caption: "Shaista Studio — “Pure Versatility” collection promo", alt: "Collection promotion for The Shaista Studio — two models in embroidered outfits on a warm peach set under the headline ‘Drape yourself in pure versatility’" },
+          { src: "assets/img/creative-campaign-04.webp", caption: "Shaista Studio — “Floral / Pick Your Vibe”", alt: "Shaista Studio fashion creative — a model in a pastel-blue floral-embroidered kurta set beside the large headline ‘Floral’" },
+          { src: "assets/img/creative-campaign-05.webp", caption: "Shaista Studio — “Ready to Wear / Co-ord”", alt: "Shaista Studio creative — a model in a rust-orange button-down co-ord set on a lilac background with the headline ‘Co-ord — not your basic monochrome fit’" },
+          { src: "assets/img/creative-campaign-06.webp", caption: "Shaista Studio — “The Must Haves”", alt: "Shaista Studio creative — a model in a navy striped kurta with orange embroidery under the headline ‘The Must Haves’" },
+          { src: "assets/img/creative-campaign-07.webp", caption: "Shaista Studio — “Regal”", alt: "Shaista Studio festive creative — a model in an orange embroidered anarkali with a green velvet dupatta under the headline ‘Regal’" },
+          { src: "assets/img/creative-campaign-08.webp", caption: "Shaista Studio — “Drape in Elegance”", alt: "Shaista Studio festive creative — a model in a sage-green embroidered outfit on a peach gradient with the headline ‘Drape in elegance’" },
+          { src: "assets/img/creative-campaign-09.webp", caption: "Shaista Studio — “Ancient Iconic”", alt: "Shaista Studio creative — a model in a black embroidered outfit in a moody alley with the headline ‘Ancient Iconic — tradition, texture, trend’" },
           { src: "assets/img/creative-campaign-03.webp", caption: "Maavie — “What genuinely helps, and what doesn’t”", alt: "Maavie social creative on a deep plum floral background with the editorial headline ‘What genuinely helps, and honestly, what doesn’t’" }
         ]
       },
