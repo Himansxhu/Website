@@ -111,6 +111,11 @@ in a different face from everything else, and it still reads as one site
 - Max width 1440, gutter `clamp(1.25rem, 4vw, 4rem)`, spacing scale
   `0.5 / 1 / 1.5 / 2 / 3 / fluid-6 / fluid-7` rem.
 - Section rhythm is `--s-7`; inside a section, `--s-6` between blocks.
+- **Every section must carry a visual.** A stretch of more than one screen
+  of pure prose is a bug on a designer's portfolio — the fix is a real
+  artefact (a journey map, a screen, a brand mark), never a stock image.
+  Skills and Contact are the two allowed exceptions: chips and a closing
+  statement are structure, not prose.
 - Radius: `4px` for chips and inputs, `12px` for cards and image plates.
 - **Flat.** Depth comes from 1px borders and surface steps, never shadows.
   The only shadows on the site are the hero's contact shadow and the ISKCON

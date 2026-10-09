@@ -68,8 +68,8 @@
   --s-3: 1.5rem;
   --s-4: 2rem;
   --s-5: 3rem;
-  --s-6: clamp(3rem, 6vw, 5rem);
-  --s-7: clamp(4.5rem, 10vw, 9rem);
+  --s-6: clamp(2.5rem, 5vw, 4rem);
+  --s-7: clamp(3.5rem, 7vw, 6.5rem);
   --radius: 4px;
   --radius-lg: 12px;
 

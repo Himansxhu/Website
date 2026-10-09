@@ -113,13 +113,41 @@
   const projects = $('[data-render="projects"]');
   if (projects) projects.innerHTML = S.projects.map((pr) => (renderers[pr.layout] || renderers.split)(pr)).join("");
 
+  /* ---------- creative ---------- */
+  const C = S.creative, ce = $('[data-render="creative"]');
+  if (C && ce) {
+    const plate = (im, extra = "") => `<span class="img reveal-img ${extra}"><img src="${esc(im.src)}" alt="${esc(im.alt)}" loading="lazy" decoding="async"></span>`;
+    const group = (g) => {
+      let body = "";
+      if (g.layout === "social") {
+        body = `<div class="cr-social" role="list">${g.images.map((im) => `<figure class="cr-card" role="listitem">${plate(im)}${im.caption ? `<figcaption>${esc(im.caption)}</figcaption>` : ""}</figure>`).join("")}</div>`;
+      } else if (g.layout === "product") {
+        body = `<div class="cr-grid">${g.images.map((im) => plate(im)).join("")}</div>`;
+      } else if (g.layout === "banners") {
+        body = `<div class="cr-wide">${g.images.map((im) => plate(im)).join("")}</div>`;
+      } else if (g.layout === "poster") {
+        body = `<div class="cr-poster">${plate(g.images[0])}<div class="txt rv" data-delay="1">${(g.text || []).map((t) => `<p>${esc(t)}</p>`).join("")}</div></div>`;
+      }
+      return `<section class="cr-group rv" aria-label="${esc(g.label)}">
+        <header class="cr-head"><h3>${esc(g.label)}</h3>${g.count ? `<span class="count">${esc(g.count)}</span>` : ""}</header>
+        ${body}
+      </section>`;
+    };
+    ce.innerHTML = `
+      <header class="sec-head rv">
+        <span class="idx">${esc(C.idx)}</span>
+        <h2 class="title display">${C.heading}</h2>
+        ${C.aside ? `<p class="aside">${esc(C.aside)}</p>` : ""}
+      </header>
+      ${C.groups.map(group).join("")}`;
+  }
+
   /* ---------- featured ---------- */
   const F = S.featured, fe = $('[data-render="featured"]');
   if (fe) fe.innerHTML = `
     <header class="sec-head rv">
       <span class="idx">${esc(F.eyebrow)}</span>
       <h2 class="title display"><em>${esc(F.name)}</em> — ${esc(F.oneLiner)}</h2>
-      <p class="aside">A self-initiated product concept, researched with real learners. The one I'd want you to read.</p>
     </header>
     ${img(F.hero, "hero-img rv")}
     <div class="grid">
@@ -140,12 +168,19 @@
   /* ---------- about ---------- */
   const ab = $('[data-render="about"]');
   if (ab) ab.innerHTML = `
-    <div class="rv">${S.about.paragraphs.map((t) => `<p>${esc(t)}</p>`).join("<br>")}</div>
-    <ul class="interests rv" data-delay="1" aria-label="Interests">${S.about.interests.map((t, i) => `<li><span>${esc(t)}</span><span>${String(i + 1).padStart(2, "0")}</span></li>`).join("")}</ul>`;
+    <div class="rv">
+      ${S.about.paragraphs.map((t) => `<p>${esc(t)}</p>`).join("<br>")}
+      <ul class="interests" aria-label="Interests">${S.about.interests.map((t, i) => `<li><span>${esc(t)}</span><span>${String(i + 1).padStart(2, "0")}</span></li>`).join("")}</ul>
+    </div>
+    <div class="side rv" data-delay="1">${S.about.portrait ? img(S.about.portrait, "about-portrait") : ""}</div>`;
 
   /* ---------- process ---------- */
   const pr = $('[data-render="process"]');
   if (pr) pr.innerHTML = S.process.map((st) => `<li class="step rv"><span class="n">${esc(st.n)}</span><h3 class="t">${esc(st.title)}</h3><p>${esc(st.text)}</p></li>`).join("");
+  const pa = $('[data-render="process-artefact"]');
+  if (pa && S.processArtefact) pa.innerHTML =
+    `<figure class="artefact rv">${img(S.processArtefact).replace("<figure", "<span").replace("</figure>", "</span>")}
+     <figcaption>${esc(S.processArtefact.caption)}</figcaption></figure>`;
 
   /* ---------- skills ---------- */
   const sk = $('[data-render="skills"]');
@@ -159,15 +194,18 @@
   const ai = $('[data-render="ai"]');
   if (ai) ai.innerHTML = `
     <header class="sec-head rv">
-      <span class="idx">05 — Design × AI</span>
+      <span class="idx">06 — Design × AI</span>
       <h2 class="title display">Where AI actually <em>shows up</em> in my work.</h2>
     </header>
     <div class="top">
       <p class="big rv">${esc(S.ai.heading).replace("It doesn't decide", "<em>It doesn't decide</em>")}</p>
       <p class="intro rv" data-delay="1">${esc(S.ai.intro)}</p>
     </div>
-    <div class="rows">
-      ${S.ai.rows.map((r, i) => `<div class="row rv" data-delay="${i % 3}"><span class="stage">${esc(r.stage)}</span><span class="arrow" aria-hidden="true">→</span><p class="how">${esc(r.ai)}</p></div>`).join("")}
+    <div class="ai-body">
+      <div class="rows">
+        ${S.ai.rows.map((r, i) => `<div class="row rv" data-delay="${i % 3}"><span class="stage">${esc(r.stage)}</span><span class="arrow" aria-hidden="true">→</span><p class="how">${esc(r.ai)}</p></div>`).join("")}
+      </div>
+      ${S.ai.proof ? `<figure class="ai-proof rv" data-delay="1">${img(S.ai.proof).replace("<figure", "<span").replace("</figure>", "</span>")}<figcaption>${esc(S.ai.proof.caption)}</figcaption></figure>` : ""}
     </div>`;
 
   /* ---------- experience ---------- */
@@ -182,6 +220,7 @@
       </div>
       <div>
         ${e.points.length ? `<ul class="points">${e.points.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+        ${e.marks ? `<div class="marks">${e.marks.map((m) => `<span class="mark"><img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="lazy" decoding="async"></span>`).join("")}</div>` : ""}
         ${e.highlight ? `<span class="highlight">${esc(e.highlight)}</span>` : ""}
       </div>
     </article>`).join("");

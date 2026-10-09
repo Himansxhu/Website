@@ -33,6 +33,7 @@
         <ul>
           <li><a href="#work">Work</a></li>
           <li><a href="#nudge">Case study</a></li>
+          <li><a href="#creative">Creative</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -47,10 +48,11 @@
     <nav aria-label="Mobile">
       <a href="#work"><span class="mono">01</span>Work</a>
       <a href="#nudge"><span class="mono">02</span>Case study</a>
-      <a href="#about"><span class="mono">03</span>About</a>
-      <a href="#process"><span class="mono">04</span>Process</a>
-      <a href="#experience"><span class="mono">05</span>Experience</a>
-      <a href="#contact"><span class="mono">06</span>Contact</a>
+      <a href="#creative"><span class="mono">03</span>Creative</a>
+      <a href="#about"><span class="mono">04</span>About</a>
+      <a href="#process"><span class="mono">05</span>Process</a>
+      <a href="#experience"><span class="mono">06</span>Experience</a>
+      <a href="#contact"><span class="mono">07</span>Contact</a>
     </nav>
     <div class="meta mono" data-render="menu-meta"></div>
   </div>
@@ -103,7 +105,6 @@
         <header class="sec-head rv">
           <span class="idx">01 — Selected work</span>
           <h2 class="title display">Work that <em>shipped</em>, and work that taught me something.</h2>
-          <p class="aside">Two live products designed and built end to end, plus the concepts where I practise the fundamentals. Fewer projects, shown properly.</p>
         </header>
         <div data-render="projects"></div>
       </div>
@@ -114,11 +115,16 @@
       <div class="container" data-render="featured"></div>
     </section>
 
+    <!-- ============ CREATIVE ============ -->
+    <section class="section creative" id="creative">
+      <div class="container" data-render="creative"></div>
+    </section>
+
     <!-- ============ ABOUT ============ -->
     <section class="section about" id="about">
       <div class="container">
         <header class="sec-head rv">
-          <span class="idx">02 — About</span>
+          <span class="idx">03 — About</span>
           <h2 class="title display" data-text="about-heading"></h2>
         </header>
         <div class="body" data-render="about"></div>
@@ -129,11 +135,13 @@
     <section class="section process" id="process">
       <div class="container">
         <header class="sec-head rv">
-          <span class="idx">03 — How I work</span>
+          <span class="idx">04 — How I work</span>
           <h2 class="title display">Six steps. The order <em>matters.</em></h2>
-          <p class="aside">The same loop whether it's a brand, a mobile concept or a live website — adapted to how much time and evidence I actually have.</p>
         </header>
-        <ol class="steps" data-render="process"></ol>
+        <div class="process-grid">
+          <ol class="steps" data-render="process"></ol>
+          <div data-render="process-artefact"></div>
+        </div>
       </div>
     </section>
 
@@ -141,7 +149,7 @@
     <section class="section skills" id="skills">
       <div class="container">
         <header class="sec-head rv">
-          <span class="idx">04 — Capabilities</span>
+          <span class="idx">05 — Capabilities</span>
           <h2 class="title display">Think, design, <em>build.</em></h2>
         </header>
         <div class="groups" data-render="skills"></div>
@@ -157,7 +165,7 @@
     <section class="section exp" id="experience">
       <div class="container">
         <header class="sec-head rv">
-          <span class="idx">06 — Experience</span>
+          <span class="idx">07 — Experience</span>
           <h2 class="title display">Where the work <em>happened.</em></h2>
         </header>
         <div class="list" data-render="experience"></div>
